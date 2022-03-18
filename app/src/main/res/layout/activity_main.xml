@@ -11,31 +11,33 @@
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="100dp"
         android:text="@string/reset"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_middle_back"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onReset"
         />
 
     <Button
         android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="100dp"
         android:text="@string/play"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_middle_back"
         app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onPlay"
         />
 
     <ImageButton
-        android:id="@+id/card_left"
+        android:id="@+id/card_left_back"
         style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="180dp"
         android:layout_height="240dp"
         android:layout_marginStart="272dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
         android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/card_left_description"
         android:scaleType="centerInside"
@@ -44,12 +46,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/card_middle"
+        android:id="@+id/card_left_face"
         style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="180dp"
         android:layout_height="240dp"
         android:layout_marginStart="272dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/card_left_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/card_middle_back"
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="180dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="10dp"
         android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/card_middle_description"
         android:scaleType="centerInside"
@@ -58,16 +75,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/card_right"
+        android:id="@+id/card_middle_face"
         style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="180dp"
         android:layout_height="240dp"
         android:layout_marginStart="272dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/card_middle_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/card_right_back"
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="180dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="10dp"
         android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/card_right_description"
         android:scaleType="centerInside"
         android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/card_right_face"
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="180dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/card_right_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
