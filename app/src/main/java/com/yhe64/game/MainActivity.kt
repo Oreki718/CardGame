@@ -1,15 +1,25 @@
 package com.yhe64.game
 
+import android.animation.Animator
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.LinearInterpolator
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.Sampler
 import android.widget.Button
 import android.widget.ImageButton
 import android.view.View
+import android.view.animation.AccelerateInterpolator
 import androidx.core.view.isInvisible
+import androidx.core.view.marginLeft
 import com.yhe64.game.GameModel
 import com.yhe64.game.Card
 import com.yhe64.game.Ace
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,10 +51,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onPlay(view: View){
-        onPlayAnimate()
+        playButton.isEnabled = false
+        showCard()
+        resetButton.isEnabled = true
     }
 
     fun onReset(view: View){
+        resetButton.isEnabled = false
         leftBackImageButton.visibility = View.VISIBLE
         leftFaceImageButton.visibility = View.INVISIBLE
         middleBackImageButton.visibility = View.VISIBLE
@@ -57,17 +70,36 @@ class MainActivity : AppCompatActivity() {
             Ace.RIGHT->rightFaceImageButton.setImageResource(R.drawable.blank)
         }
         onResetAnimate()
-    }
-
-    fun onPlayAnimate(){
-        playButton.isEnabled = false
-        resetButton.isEnabled = true
-
-    }
-
-    fun onResetAnimate(){
-        resetButton.isEnabled = false
         playButton.isEnabled = true
+    }
+
+    private fun showCard(){
+        val leftBackAnimator = ObjectAnimator.ofFloat(leftBackImageButton, "translationX", 0f, -600f)
+        val leftFaceAnimator = ObjectAnimator.ofFloat(leftFaceImageButton, "translationX", 0f, -600f)
+        val rightBackAnimator = ObjectAnimator.ofFloat(rightBackImageButton, "translationX", 0f, 600f)
+        val rightFaceAnimator = ObjectAnimator.ofFloat(rightFaceImageButton, "translationX", 0f, 600f)
+        val animatorSet = AnimatorSet()
+        animatorSet.play(leftBackAnimator)
+        animatorSet.play(leftFaceAnimator)
+        animatorSet.play(rightBackAnimator)
+        animatorSet.play(rightFaceAnimator)
+        animatorSet.duration = 1000
+        animatorSet.start()
+
+    }
+
+    private fun onResetAnimate(){
+        val leftBackAnimator = ObjectAnimator.ofFloat(leftBackImageButton, "translationX", -600f, 0f)
+        val leftFaceAnimator = ObjectAnimator.ofFloat(leftFaceImageButton, "translationX", -600f, 0f)
+        val rightBackAnimator = ObjectAnimator.ofFloat(rightBackImageButton, "translationX", 600f, 0f)
+        val rightFaceAnimator = ObjectAnimator.ofFloat(rightFaceImageButton, "translationX", 600f, 0f)
+        val animatorSet = AnimatorSet()
+        animatorSet.play(leftBackAnimator)
+        animatorSet.play(leftFaceAnimator)
+        animatorSet.play(rightBackAnimator)
+        animatorSet.play(rightFaceAnimator)
+        animatorSet.duration = 1000
+        animatorSet.start()
 
     }
 }
