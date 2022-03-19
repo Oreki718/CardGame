@@ -35,4 +35,11 @@ class GameModel(
         }
     }
 
+    fun resetGame(){
+        left = Card.BACK
+        right = Card.BACK
+        middle = Card.BACK
+        ace = Ace.LEFT
+    }
+
 }
